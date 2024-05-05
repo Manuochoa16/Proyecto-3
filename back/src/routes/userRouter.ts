@@ -5,7 +5,6 @@ import { getUserById, getUsers, registerUser, loginUser} from "../controllers/us
 const router: Router = Router();
 
 
-// router.post("/users", createUser);
 router.get("/", getUsers)
 router.get("/:id", getUserById);
 router.post("/register", registerUser);

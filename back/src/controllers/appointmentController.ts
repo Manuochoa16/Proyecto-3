@@ -1,68 +1,53 @@
 import { Request, Response } from "express";
+import { scheduleAppointmentService, getAppointmentsService, getAppointmentByIdService, cancelAppointmentService } from "../service/appointmentService";
+import IAppointment from "../interfaces/IAppointment";
 
+
+//Obtener todas las citas 
 export const getAppointments = async (req: Request, res: Response) => {
-    res.status(200).send("Listado de todos los turnos de los usuarios");
+    const appointments: IAppointment[] = await getAppointmentsService();
+    res.status(200).json(appointments);
 };
 
-export const getAppointment = async (req: Request, res: Response) => {
-    res.status(200).send("Detalle de un turno especifico");
-};
-
+//Crear cita
 export const scheduleAppointment = async (req: Request, res: Response) => {
-    res.status(200).send("Listado de todos los turnos de los usuarios");
+    const{ userId, date, time, description, status, service } = req.body;
+    const newAppointment: IAppointment = await scheduleAppointmentService({ userId, date, time, description, status, service })
+    res.status(201).json(newAppointment);
 };
 
+//Obtener una cita por ID
+export const getAppointmentById = async (req: Request, res: Response) => {
+    const { id } = req.body
+    const appointment = await getAppointmentByIdService(id);
+    
+    if (appointment) {
+        res.status(200).json(appointment)
+    } else {
+        res.status(404).json({error: "Turno no encontrado"});
+    }
+};
+
+//Cancelar turno, creo que hay que cambiarlo
 export const cancelAppointment = async (req: Request, res: Response) => {
-    res.status(200).send("Listado de todos los turnos de los usuarios");
+    const { id } = req.params;
+    const appointmentId = parseInt(id);
+    
+    try {
+        const cancelled = await cancelAppointmentService(appointmentId);
+        if (cancelled) {
+            res.status(200).json({ message: "El turno ha sido cancelado exitosamente." });
+        } else {
+            res.status(404).json({ error: "No se encontró el turno con el ID proporcionado." });
+        }
+    } catch (error) {
+        console.error("Error al cancelar el turno:", error);
+        res.status(500).json({ error: "Error interno del servidor al cancelar el turno." });
+    }
 };
 
-// import { Request, Response } from "express";
-// import {
-//     getAppointmentsService,
-//     getAppointmentByIdService,
-//     scheduleAppointmentService,
-//     cancelAppointmentService
-// } from "../services/appointmentService";
 
-// export const getAppointments = async (req: Request, res: Response) => {
-//     try {
-//         const appointments = await getAppointmentsService();
-//         res.status(200).json(appointments);
-//     } catch (error) {
-//         res.status(500).json({ message: "Error al obtener los turnos" });
-//     }
-// }
-
-// export const getAppointment = async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     try {
-//         const appointment = await getAppointmentByIdService(Number(id));
-//         if (appointment) {
-//             res.status(200).json(appointment);
-//         } else {
-//             res.status(404).json({ message: "Turno no encontrado" });
-//         }
-//     } catch (error) {
-//         res.status(500).json({ message: "Error al obtener el turno" });
-//     }
-// }
-
-// export const scheduleAppointment = async (req: Request, res: Response) => {
-//     const appointmentData = req.body;
-//     try {
-//         const newAppointment = await scheduleAppointmentService(appointmentData);
-//         res.status(201).json(newAppointment);
-//     } catch (error) {
-//         res.status(500).json({ message: "Error al agendar el turno" });
-//     }
-// }
-
+// //Cancelar turno
 // export const cancelAppointment = async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     try {
-//         await cancelAppointmentService(Number(id));
-//         res.status(200).json({ message: "Turno cancelado correctamente" });
-//     } catch (error) {
-//         res.status(500).json({ message: "Error al cancelar el turno" });
-//     }
-// }
+//     res.status(200).send("Listado de todos los turnos de los usuarios");
+// };

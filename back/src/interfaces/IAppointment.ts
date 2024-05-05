@@ -1,11 +1,11 @@
-// interface IAppointment {
-//     id: number,
-//     Date: number,
-//     Time: number,
-//     Description: string,
-//     status: boolean,
-//     user: string,
-//     service: string
-// }
+interface IAppointment {
+    id: number,
+    userId: number,
+    date: Date,
+    time: number,
+    description: string,
+    status: boolean,
+    service: string
+}
 
-// export default IAppointment
+export default IAppointment;

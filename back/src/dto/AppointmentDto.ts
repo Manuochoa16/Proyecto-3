@@ -1,10 +1,10 @@
-// interface AppointmentDto {
-//     Date: number,
-//     Time: number,
-//     Description: string,
-//     status: boolean,
-//     user: string,
-//     service: string
-// }
+interface AppointmentDto {
+    userId: number,
+    date: Date,
+    time: number,
+    description: string,
+    status: boolean,
+    service: string
+}
 
-// export default AppointmentDto
+export default AppointmentDto;
