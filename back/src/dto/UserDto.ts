@@ -1,10 +1,10 @@
-interface UserDto{
-    name: string,
-    email: string,
-    birthdate: number,
-    dni_number: number
-    // credentialsID: number
+interface UserDto {
+    name:string,
+    email:string,
+    nDni: number,
+    birthdate:string,
+    username:string,
+    password:string,
 }
 
 export default UserDto;
-

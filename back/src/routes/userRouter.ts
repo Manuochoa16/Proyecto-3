@@ -1,15 +1,16 @@
-import { Router } from "express";
-import { getUserById, getUsers, registerUser, loginUser} from "../controllers/userController";
-// import auth from "../middlewares/auth";
+import express from 'express'; 
+import { createUserController, getUsersController, deleteUserController, getUserByIdController, validateCredentialController } from '../controllers/usersController'; 
 
-const router: Router = Router();
+const userRouter = express.Router(); 
 
+userRouter.post('/register', createUserController);
 
-router.get("/", getUsers)
-router.get("/:id", getUserById);
-router.post("/register", registerUser);
-router.post("/login", loginUser);
+userRouter.get('/', getUsersController);
 
+userRouter.delete('/:id', deleteUserController);
 
-export default router;
+userRouter.get('/:id', getUserByIdController);
 
+userRouter.post('/login', validateCredentialController);
+
+export default userRouter;

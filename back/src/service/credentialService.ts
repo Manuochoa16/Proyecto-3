@@ -1,36 +1,38 @@
-import ICredential from "../interfaces/ICredential";
+import CredentialRepository from "../repositories/CredentialRepository";
+import { Credential } from "../entities/Credential";
+import UserRepository from "../repositories/UserRepository";
+import { User } from "../entities/User";
 
-let credentials: ICredential[] = [];
-
-let nextId: number = 1;
-
-// Crear el nuevo par de credenciales
-export const createCredentialService = async (username: string, password: string): Promise<number> => {
-
-    const newCredential: ICredential = {
-        id: nextId,
-        username: username,
-        password: password
-    };
-
-    nextId++;
-
-    credentials.push(newCredential);
-
-    return newCredential.id;
-};
-
-
-// Buscar el usuario por su nombre de usuario
-export const validateCredentialsService = async (username: string, password: string): Promise<number | null> => {
-    const user = credentials.find((credential) => credential.username === username);
-    if (!user) {
-        return null;
-    }
-// Verificar si la contraseña ya existe
-    if (user.password === password) {
-        return user.id;
-    } else {
-        return null;
+export const createCredential = async (username: string, password: string)=> {
+    try {
+        const newCredential = {
+            username,
+            password,
+        };
+        const credential = await CredentialRepository.create(newCredential);
+        await CredentialRepository.save(credential);
+        
+        return credential;
+    } catch (error) {
+        throw new Error("Error al crear credencial: " + (error instanceof Error ? error.message : "Unknown error"));
     }
 };
+
+export const validateCredential = async (username: string, password: string): Promise<Credential | null> => {
+    try {
+        const credential = await CredentialRepository.findOne({ where: { username, password } });
+
+        if (credential) {
+            return credential;
+        } else {
+            throw new Error('Credenciales incorrectas');
+        }
+    } catch (error) {
+        throw new Error("Error al validar credencial: " + (error instanceof Error ? error.message : "Unknown error"));
+    }
+};
+export const findUserByCredentialId = async(id: Credential): Promise <User | null> => {
+
+    const user: User | null = await UserRepository.findOne({where:{credentials:(id)}})
+    return user;
+}

@@ -1,0 +1,40 @@
+ENTIDADES
+
+USER:
+    ID
+    Name
+    Email
+    Birthdate
+    Dni_number
+    Appointment
+    Credentials
+
+CREDENTIALS:
+    ID
+    Username
+    Password
+
+APPOINTMENT:
+    ID
+    Date
+    Time
+    Description
+    Status
+    User
+    Service
+
+Como usuario invitado:
+Debes poder navegar en la aplicación (barra de navegación).
+Debe poder visualizar los productos/servicios que ofrece la aplicación.
+Debe poder visualizar el detalle de cada producto/servicio (opcional).
+Debo poder visualizar el horario de atención.
+Debo poder registrarme.
+Debo poder visualizar un sobre nosotros, contáctanos.
+
+Como usuario registrado:
+    Debo poder loguearme.
+    Debo poder agendar un turno.
+    Debo poder cancelar un turno.
+    Debes poder visualizar el historial de turnos.
+    Debo poder desloguearme.
+    Debes poder editar el perfil del usuario (opcional).

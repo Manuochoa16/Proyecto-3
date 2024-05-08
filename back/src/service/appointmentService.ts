@@ -1,43 +1,62 @@
-import AppointmentDto from "../dto/AppointmentDto";
-import IAppointment from "../interfaces/IAppointment"
+import { Appointment } from "../entities/Appointment";
+import { getUserByIdService } from "./usersService";
+import AppointmentRepository from "../repositories/AppointmentRepository";
 
-const appointments: IAppointment[] = [];
+let appointments:Appointment[] = [];
+let id: number = 1;
 
-let id: number = 1
-
-//Crear turno
-export const scheduleAppointmentService = async (appointmentData: AppointmentDto): Promise<IAppointment> => {
-    const newAppointment: IAppointment = {
-        id,
-        userId: appointmentData.userId,
-        date: appointmentData.date,
-        time: appointmentData.time,
-        description: appointmentData.description,
-        status: appointmentData.status,
-        service: appointmentData.service
-    }
-    appointments.push(newAppointment);
-    id++;
-    return newAppointment;
-}
-
-// Obtener todos los turnos
-export const getAppointmentsService = async (): Promise<IAppointment[]> => {
+export const getAllAppointment = async (): Promise<Appointment[]> => {
+    const appointments = await AppointmentRepository.find();
+    console.log("Appointments:", appointments);
     return appointments;
 }
 
-//Obtener un turno especifico por ID
-export const getAppointmentByIdService = async (id: number): Promise<IAppointment | undefined> => {
-    const appointment = appointments.find((appointment:IAppointment) => appointment.id === id);
-    return appointment;
-};
+export const createAppointment = async (userId: number, date: Date, time: string) => {
+    try {
+        const user = await getUserByIdService(userId);
+        if (!user) {
+            console.error("El usuario no existe");
+            return null;
+        }
 
-//Cancelar un turno por ID, creo que hay que cambiarlo
-export const cancelAppointmentService = async (id: number): Promise<boolean> => {
-    const appointmentIndex = appointments.findIndex(appointment => appointment.id === id);
-    if (appointmentIndex !== -1) {
-        appointments[appointmentIndex].status = false;
-        return true;
+        const newAppointment = {
+            date,
+            time,
+            userId
+        };
+        
+        const appointment = await AppointmentRepository.create(newAppointment);
+        await AppointmentRepository.save(appointment);
+        return appointment;
+    } catch (error) {
+        console.error("Error al crear la cita:", error);
+        throw error; 
     }
-    return false;
-};
+}
+
+export const cancelAppointment = async (appointmentId: number): Promise<void> => {
+    try {
+        const appointment = await AppointmentRepository.findOne({ where: { id: appointmentId } });
+        if (!appointment){
+            console.error("La cita no existe");
+            throw new Error("La cita no existe"); 
+        } 
+        appointment.status = "cancelled";
+        await AppointmentRepository.save(appointment);
+    } catch (error) {
+        console.error("Error al cancelar la cita:", error);
+        throw error; 
+    }
+}
+
+export const getAppointmentById = async (id: number): Promise<Appointment | null>=> {
+    try {
+            return await AppointmentRepository.findOne({ where:{id}, relations: ["userId"]
+            })
+            
+        
+    } catch (error) {
+        console.error("Error al obtener la cita por ID:", error);
+        throw error;
+    }
+}

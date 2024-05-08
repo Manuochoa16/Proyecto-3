@@ -10,14 +10,12 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "Bela.2316",
     database: "bddm3",
-    //dropSchema: true,
+    dropSchema: true,
     synchronize: true,
     logging: true,
-    entities: [User, Appointment, Credential],
+    entities: [User, Credential, Appointment],
     subscribers: [],
     migrations: [],
 })
 
-export const UserModel = AppDataSource.getRepository(User);
 export const AppointmentModel = AppDataSource.getRepository(Appointment);
-export const CredentialModel = AppDataSource.getRepository(Credential);

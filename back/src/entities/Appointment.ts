@@ -1,28 +1,26 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
 import { User } from "./User";
 
 @Entity({
-    name: "appointments"
+  name: "appointments"
 })
 export class Appointment {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    date: Date
+  @Column()
+  date: Date;
 
-    @Column()
-    time: string
+  @Column()
+  time: string;
 
-    @Column()
-    description: string
+  @ManyToOne(() => User, user => user.appointments)
+  @JoinColumn({ name: "userId" })
+  userId: number;
 
-    @ManyToOne(() => User, user => user.appointments)
-    @JoinColumn({ name: "userId"})
-    userId: number
 
-    @Column({
-        default: "active"
-    })
-    status: "active" | "cancelled"
+  @Column({
+    default: "active"
+  })
+  status: "active" | "cancelled";
 }
