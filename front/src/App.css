@@ -1,0 +1,30 @@
+/* App.module.css */
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.leftSection,
+.rightSection {
+  width: 50%;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftSection {
+  flex-direction: column;
+  margin-bottom: 18%;
+}
+
+.rightSection {
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
+.rightSection button {
+  margin-top: 10px;
+}

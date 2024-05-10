@@ -1,0 +1,24 @@
+/* NavBar.module.css */
+
+.navBarContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #efe7dd;
+  padding: 10px;
+}
+
+.navBarTitle {
+  font-size: 1.5em;
+  color: #2d4262;
+}
+
+.navBarItem {
+  margin: 0 10px;
+  color: #2d4262;
+  text-decoration: none;
+}
+
+.navBarItem:hover {
+  text-decoration: underline;
+}
