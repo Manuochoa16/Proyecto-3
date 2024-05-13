@@ -1,41 +1,38 @@
 import React from "react";
+import styles from "./Contact.module.css"; // Importa el archivo CSS Module
 import instagramImage from "../../assets/Instagram pagina.png";
 import whatsappImage from "../../assets/Diseño sin título.png";
 import facebookImage from "../../assets/Facebook pagina.png";
 
 const Contact = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ marginRight: "10px" }}>
-        <button>
+    <div className={styles.contactContainer}>
+      {" "}
+      {/* Aplica la clase CSS Module */}
+      <div className={styles.contactItem}>
+        <button className={styles.contactButton}>
           <img
             src={instagramImage}
             alt="Instagram"
-            style={{ width: "50px", height: "50px" }}
+            className={styles.contactImage} // Aplica la clase CSS Module sin comentarios
           />
         </button>
       </div>
-      <div style={{ marginRight: "10px" }}>
-        <button>
+      <div className={styles.contactItem}>
+        <button className={styles.contactButton}>
           <img
             src={whatsappImage}
             alt="WhatsApp"
-            style={{ width: "50px", height: "50px" }}
+            className={styles.contactImage} // Aplica la clase CSS Module sin comentarios
           />
         </button>
       </div>
-      <div>
-        <button>
+      <div className={styles.contactItem}>
+        <button className={styles.contactButton}>
           <img
             src={facebookImage}
             alt="Facebook"
-            style={{ width: "50px", height: "50px" }}
+            className={styles.contactImage} // Aplica la clase CSS Module sin comentarios
           />
         </button>
       </div>

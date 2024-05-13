@@ -1,11 +1,8 @@
-/* NavBar.module.css */
-
 .navBarContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #efe7dd;
-  padding: 10px;
 }
 
 .navBarTitle {
@@ -16,9 +13,25 @@
 .navBarItem {
   margin: 0 10px;
   color: #2d4262;
-  text-decoration: none;
 }
 
-.navBarItem:hover {
-  text-decoration: underline;
+.homeImage {
+  max-width: 200px;
+}
+
+.principalButton {
+  color: #2d4262;
+  border-radius: 8px;
+  border: 2px solid #2d4262;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #efe7dd;
+  cursor: pointer;
+}
+
+.principalButton:hover {
+  border-color: #2d4262;
+  border-width: 3px;
 }

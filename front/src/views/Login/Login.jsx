@@ -1,11 +1,14 @@
-const Login = () => {
-  return (
-    <>
-      <p>
-        <button>Ingresá</button>
-      </p>
-    </>
-  );
-};
+// import React from "react";
+// import styles from "./Login.module.css";
 
-export default Login;
+// const Login = () => {
+//   return (
+//     <>
+//       <p>
+//         <button className={styles.principalButton}>Ingresá</button>
+//       </p>
+//     </>
+//   );
+// };
+
+// export default Login;

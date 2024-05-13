@@ -1,0 +1,35 @@
+.contactContainer {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+  align-items: flex-end; /* Alinea los elementos en la parte inferior del contenedor */
+  position: fixed; /* Fija el contenedor en la parte inferior de la página */
+  bottom: 0; /* Alinea el contenedor en la parte inferior de la ventana del navegador */
+  width: 100%; /* Establece el ancho al 100% */
+  background-color: #efe7dd; /* Cambia el color de fondo del contenedor */
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total del contenedor */
+  z-index: 1000; /* Asegura que el contenedor esté sobre otros elementos */
+}
+
+.contactItem {
+  margin-right: 10px;
+}
+
+.contactButton {
+  background-color: #efe7dd; /* Cambia el color de fondo del botón */
+  border-radius: 8px; /* Añade un borde redondeado */
+  cursor: pointer;
+  border: none; /* Elimina el borde del botón */
+}
+
+.contactButton:hover .contactImage {
+  transform: scale(
+    1.2
+  ); /* Aumenta el tamaño de la imagen al 120% al pasar el cursor */
+}
+
+.contactImage {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease; /* Agrega una transición suave al cambio de tamaño */
+}

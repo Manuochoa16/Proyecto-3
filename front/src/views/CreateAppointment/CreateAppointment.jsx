@@ -1,11 +1,14 @@
-const CreateAppointment = () => {
-  return (
-    <>
-      <p>
-        <button>Crear turno</button>
-      </p>
-    </>
-  );
-};
+// import React from "react";
+// import styles from "./CreateAppointment.module.css";
 
-export default CreateAppointment;
+// const CreateAppointment = () => {
+//   return (
+//     <>
+//       <p>
+//         <button className={styles.principalButton}>Crear turno</button>
+//       </p>
+//     </>
+//   );
+// };
+
+// export default CreateAppointment;

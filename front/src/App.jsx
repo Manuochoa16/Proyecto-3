@@ -1,21 +1,21 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Contacto from "./views/Contact/Contact";
-import Home from "./views/Home/Home";
 import MisTurnos from "./views/Mis Turnos/MisTurnos";
+import Register from "./views/Register/Register";
 
 function App() {
   return (
-    <div className="container">
-      <div className={"left-section"}>
-        <Home />
-        <Contacto />
-      </div>
-      <div className="right-section">
-        <NavBar />
+    <div>
+      <NavBar />
+      <div>
+        <div>
+          <Register />
+        </div>
+        <MisTurnos />
       </div>
       <div>
-        <MisTurnos />
+        <Contacto />
       </div>
     </div>
   );

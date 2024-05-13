@@ -1,11 +1,13 @@
-import imagen from "../../assets/logotipo odontologia ilustrado azul beige.png";
+// import React from "react";
+// import styles from "./Home.module.css"; // Importa el archivo CSS Module
+// import imagen from "../../assets/logotipo odontologia ilustrado azul beige.png";
 
-const Home = () => {
-  return (
-    <>
-      <img src={imagen} alt="Mi imagen" />
-    </>
-  );
-};
+// const Home = () => {
+//   return (
+//     <>
+//       <img src={imagen} alt="Mi imagen" className={styles.homeImage} />
+//     </>
+//   );
+// };
 
-export default Home;
+// export default Home;
