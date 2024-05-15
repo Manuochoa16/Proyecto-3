@@ -1,0 +1,8 @@
+.homeImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.homeImage {
+  height: 800px;
+}

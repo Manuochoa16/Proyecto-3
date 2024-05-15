@@ -29,7 +29,7 @@ const MisTurnos = () => {
     } else {
       getTurns();
     }
-  }, []); // El arreglo de dependencias está vacío, lo que significa que este efecto se ejecutará una vez al montar el componente y luego cada vez que el componente se vuelva a mostrar
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -61,42 +61,3 @@ const MisTurnos = () => {
 };
 
 export default MisTurnos;
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-// import React, { useState, useEffect } from "react";
-// import Turno from "../../components/Turnos/Turno";
-// import styles from "./MisTurnos.module.css";
-// import axios from "axios";
-
-// const MisTurnos = () => {
-//   const [turnos, setTurnos] = useState([]);
-
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:3000/turns")
-//       .then((res) => setTurnos(res.data))
-//       .catch((error) => {
-//         console.error("Error al obtener los turnos:", error);
-//       });
-//   }, []);
-
-//   return (
-//     <div className={styles.misTurnosContainer}>
-//       <h1 className={styles.misTurnosTitle}>Lista de turnos</h1>
-//       {turnos.map((turno) => (
-//         <div key={turno.id}>
-//           <Turno
-//             id={turno.id}
-//             time={turno.time}
-//             date={turno.date}
-//             status={turno.status}
-//             setTurnos={setTurnos}
-//           />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default MisTurnos;

@@ -1,0 +1,48 @@
+.formContainer {
+  max-width: 400px; /* Puedes ajustar el ancho máximo del contenedor según tu diseño */
+  margin: auto; /* Centrar el contenedor horizontalmente */
+}
+
+.registerForm {
+  max-width: 400px; /* Puedes ajustar el ancho máximo del formulario según tu diseño */
+  margin: auto; /* Centrar el formulario horizontalmente */
+}
+
+.styledInput {
+  border: 3px solid #2d4262; /* Borde de color #2d4262 de 3px */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interno para el texto */
+  margin-bottom: 15px; /* Espacio entre inputs */
+  width: 100%; /* Ancho completo del input */
+}
+
+.styledInput::placeholder {
+  color: #2d4262; /* Color del texto del placeholder */
+}
+
+.createButton {
+  color: #2d4262;
+  border-radius: 8px;
+  border: 2px solid #2d4262;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #efe7dd;
+  cursor: pointer;
+  margin: auto;
+}
+
+.createButton:hover {
+  border-color: #2d4262;
+  border-width: 3px;
+}
+
+.inputError {
+  border-color: red; /* Cambia el borde del input en caso de error */
+}
+
+.error {
+  color: red; /* Cambia el color del texto de error */
+  font-size: 0.8em; /* Ajusta el tamaño del texto de error */
+}

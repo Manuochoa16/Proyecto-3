@@ -1,17 +1,25 @@
-.register-form {
+.formContainer {
   max-width: 400px; /* Puedes ajustar el ancho máximo del formulario según tu diseño */
   margin: auto; /* Centrar el formulario horizontalmente */
 }
 
-.styled-input {
+.inputGroup {
+  margin-bottom: 15px; /* Espacio entre grupos de input */
+}
+
+.inputLabel {
+  font-weight: bold; /* Hace que la etiqueta del input sea negrita */
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+}
+
+.styledInput {
   border: 3px solid #2d4262; /* Borde de color #2d4262 de 3px */
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px; /* Espacio interno para el texto */
-  margin-bottom: 15px; /* Espacio entre inputs */
   width: 100%; /* Ancho completo del input */
 }
 
-.styled-input::placeholder {
+.styledInput::placeholder {
   color: #c3c6cc; /* Color del texto del placeholder */
 }
 
@@ -31,4 +39,13 @@
 .registrarseButton:hover {
   border-color: #2d4262;
   border-width: 3px;
+}
+
+.inputError {
+  border-color: red; /* Cambia el borde del input en caso de error */
+}
+
+.error {
+  color: red; /* Cambia el color del texto de error */
+  font-size: 0.8em; /* Ajusta el tamaño del texto de error */
 }

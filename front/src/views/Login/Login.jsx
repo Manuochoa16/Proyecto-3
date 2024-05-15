@@ -82,121 +82,38 @@ const Login = () => {
       <h1>Iniciar Sesión</h1>
       {loginError && <div className={styles.error}>{loginError}</div>}
       <form onSubmit={handleSubmit}>
-        <label>Nombre de Usuario:</label>
+        <label className={styles.inputLabel}>Nombre de Usuario:</label>
         <input
           type="text"
           name="username"
           value={form.username}
           onChange={handleChange}
-          className={errors.username && styles.inputError}
+          className={`${styles.styledInput} ${
+            errors.username && styles.inputError
+          }`}
         />
         {errors.username && (
           <span className={styles.error}>{errors.username}</span>
         )}
-        <label>Contraseña:</label>
+        <label className={styles.inputLabel}>Contraseña:</label>
         <input
           type="password"
           name="password"
           value={form.password}
           onChange={handleChange}
-          className={errors.password && styles.inputError}
+          className={`${styles.styledInput} ${
+            errors.password && styles.inputError
+          }`}
         />
         {errors.password && (
           <span className={styles.error}>{errors.password}</span>
         )}
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit" className={styles.createButton}>
+          Iniciar Sesión
+        </button>
       </form>
     </div>
   );
 };
 
 export default Login;
-
-//////////////////////////////////////////////////////////////////////////////
-
-// import { useState } from "react";
-// import { validate } from "../../helpers/validate";
-
-// function Login() {
-//   const usernameRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/;
-//   const passwordRegex = /^.{6,}$/;
-
-//   const [userData, setUserData] = useState({
-//     username: "",
-//     password: "",
-//   });
-
-//   const [errors, setErrors] = useState({
-//     username: "",
-//     password: "",
-//   });
-
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target;
-//     setUserData({
-//       ...userData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleOnSubmit = (event) => {
-//     event.preventDefault();
-
-//     const newErrors = {};
-//     if (!usernameRegex.test(userData.username)) {
-//       newErrors.username = "Invalid username format";
-//     } else {
-//       newErrors.username = "";
-//     }
-
-//     if (!passwordRegex.test(userData.password)) {
-//       newErrors.password = "Invalid password format";
-//     } else {
-//       newErrors.password = "";
-//     }
-
-//     setErrors(newErrors);
-
-//     if (Object.values(newErrors).every((error) => error === "")) {
-//       if (
-//         userData.username === "contra123" &&
-//         userData.password === "contra123"
-//       ) {
-//         alert("Usuario válido");
-//       } else {
-//         alert("Usuario o contraseña incorrectos");
-//       }
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleOnSubmit}>
-//       <h2>Login</h2>
-//       <div>
-//         <label>Usuario: </label>
-//         <input
-//           type="text"
-//           value={userData.username}
-//           name="username"
-//           placeholder="Usuario123"
-//           onChange={handleInputChange}
-//         />
-//         {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
-//       </div>
-//       <div>
-//         <label>Contraseña: </label>
-//         <input
-//           type="password"
-//           value={userData.password}
-//           name="password"
-//           placeholder="********"
-//           onChange={handleInputChange}
-//         />
-//         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-//       </div>
-//       <button type="submit">Enviar</button>
-//     </form>
-//   );
-// }
-
-// export default Login;
