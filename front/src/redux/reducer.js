@@ -13,7 +13,9 @@ export const todoSlice = createSlice({
       state.user = action.payload;
     },
     addAppointment: (state, action) => {
+      console.log(action.payload);
       state.appointments = action.payload;
+      console.log(state.appointments.id);
     },
   },
 });

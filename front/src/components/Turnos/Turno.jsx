@@ -22,19 +22,27 @@ const Turno = ({ id, date, time, status }) => {
       navigate("/mis-turnos");
     } catch (error) {
       console.error("Error al cancelar el turno:", error);
-      // Manejar el error de manera adecuada
+      // Mostrar mensaje de error al usuario
+      alert(
+        "Error al cancelar el turno. Por favor, inténtalo de nuevo más tarde."
+      );
     }
+  };
+
+  // Función para obtener la descripción del estado
+  const getStatusDescription = () => {
+    return estado === "active" ? "Activo" : "Cancelado";
   };
 
   return (
     <div className={styles.card}>
       <div className={styles.info}>
-        {/* Aquí llamamos a la función formatDate para formatear la fecha */}
         <h4>Fecha: {formatDate(date)}</h4>
         <h4>Hora: {time}</h4>
       </div>
       <div className={estado === "active" ? styles.active : styles.canceled}>
-        <h4>{estado}</h4>
+        <h4>Estado: {getStatusDescription()}</h4>{" "}
+        {/* Mostrar descripción del estado */}
       </div>
       {estado !== "cancelled" && (
         <button onClick={cancelTurn}>Cancelar Turno</button>
