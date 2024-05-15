@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
   align-items: flex-end; /* Alinea los elementos en la parte inferior del contenedor */
-  position: fixed; /* Fija el contenedor en la parte inferior de la página */
   bottom: 0; /* Alinea el contenedor en la parte inferior de la ventana del navegador */
   width: 100%; /* Establece el ancho al 100% */
   background-color: #efe7dd; /* Cambia el color de fondo del contenedor */

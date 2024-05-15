@@ -1,17 +1,30 @@
-/* .principalButton {
-  color: #2d4262;
-  border-radius: 8px;
-  border: 2px solid #2d4262;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #efe7dd;
-  cursor: pointer;
-  margin: 0 20px;
+.aboutUsContainer {
+  max-width: 800px; /* Puedes ajustar el ancho máximo según tu diseño */
+  margin: auto; /* Centrar el contenido horizontalmente */
 }
 
-.principalButton:hover {
-  border-color: #2d4262;
-  border-width: 3px;
-} */
+.section {
+  margin-bottom: 40px; /* Espacio entre secciones */
+}
+
+.aboutDescription {
+  margin-bottom: 20px; /* Espacio inferior para la descripción */
+}
+
+.aboutImage {
+  max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.treatmentsList {
+  margin-top: 10px; /* Espacio superior para la lista de tratamientos */
+}
+
+.treatmentsList ul {
+  list-style-type: none; /* Elimina los estilos de lista por defecto */
+}
+
+.treatmentsImage {
+  max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}

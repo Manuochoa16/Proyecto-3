@@ -9,15 +9,6 @@
   margin-bottom: 16px;
 }
 
-.turnoCard {
-  width: 80%;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  margin-bottom: 20px;
-}
-
 .turnoInfo {
   font-size: 1.2em;
   margin-bottom: 10px;

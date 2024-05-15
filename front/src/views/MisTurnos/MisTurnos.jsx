@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Turno from "../../components/Turnos/Turno";
 import styles from "./MisTurnos.module.css";
 import axios from "axios";
@@ -19,7 +19,7 @@ const MisTurnos = () => {
     <div className={styles.misTurnosContainer}>
       <h1 className={styles.misTurnosTitle}>Lista de turnos</h1>
       {turnos.map((turno) => (
-        <div className={styles.turnoCard}>
+        <div key={turno.id}>
           <Turno
             id={turno.id}
             time={turno.time}
@@ -34,6 +34,8 @@ const MisTurnos = () => {
 };
 
 export default MisTurnos;
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 // const MisTurnos = () => {
 //   const [turnos, setTurnos] = useState([]);

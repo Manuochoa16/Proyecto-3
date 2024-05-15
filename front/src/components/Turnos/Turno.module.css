@@ -1,20 +1,39 @@
-.turnoContainer {
+.card {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.info {
+  margin-bottom: 10px;
+}
+
+.active {
+  color: green;
+}
+
+.canceled {
+  color: red;
+}
+
+.card button {
+  color: #2d4262;
+  border-radius: 8px;
+  border: 2px solid #2d4262;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
   background-color: #efe7dd;
-  padding: 10px;
-  text-align: center;
+  cursor: pointer;
 }
 
-.turnoTitle {
-  font-size: 1.5em;
-  color: #2d4262;
-}
-
-.turnoItem {
-  margin: 0 10px;
-  color: #2d4262;
-  text-decoration: none;
-  text-align: center;
+.card button:hover {
+  border-color: #2d4262;
+  border-width: 3px;
 }
